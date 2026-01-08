@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Card, Modal, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Card, Button } from 'react-bootstrap';
 import orchidList from './listOfOrchid.js';
+import ConfirmModal from './ComfirmModal.jsx';
 
 function ListOfOrchid() {
     const [show, setShow] = useState(false);
@@ -34,33 +34,28 @@ function ListOfOrchid() {
                             {orchid.isSpecial && <span className="special-badge">Đặc biệt</span>}
                             <div style={{ marginTop: '0.8rem' }}>
                                 <Button variant="primary" size="sm" onClick={() => openModal(orchid)}>Detail</Button>
-                                {/* <Button as={Link} to={`/orchid/${orchid.id}`} variant="outline-secondary" size="sm" style={{ marginLeft: '0.6rem' }}>Page</Button> */}
                             </div>
                         </Card.Body>
                     </Card>
                 ))}
             </div>
 
-            <Modal show={show} onHide={handleClose} size="lg" centered>
-                <Modal.Header closeButton>
-                    <Modal.Title>{selected?.orchidName}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    {selected && (
-                        <div>
-                            <img className="modal-image" src={selected.image} alt={selected.orchidName} />
-                            <div className="modal-desc">
-                                <p>{selected.description}</p>
-                                <p><strong>Danh mục:</strong> {selected.category}</p>
-                                <p><strong>Giá:</strong> {selected.price}</p>
-                            </div>
+            <ConfirmModal
+                show={show}
+                handleClose={handleClose}
+                handleConfirm={handleClose}
+                title={selected ? selected.orchidName : ''}
+                body={selected ? (
+                    <div>
+                        <img className="modal-image" src={selected.image} alt={selected.orchidName} />
+                        <div className="modal-desc">
+                            <p>{selected.description}</p>
+                            <p><strong>Danh mục:</strong> {selected.category}</p>
+                            <p><strong>Giá:</strong> {selected.price}</p>
                         </div>
-                    )}
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>Close</Button>
-                </Modal.Footer>
-            </Modal>
+                    </div>
+                ) : null}
+            />
         </div>
     );
 }
