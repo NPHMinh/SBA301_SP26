@@ -5,6 +5,8 @@ import Home from './components/Home.jsx'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import ListOfOrchid from './components/ListOfOrchid.jsx'
+import About from './components/About.jsx'
+import Contact from './components/Contact.jsx'
 import TestCount from './components/TestCount.jsx'
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/orchid" element={<ListOfOrchid searchTerm={searchTerm} onSearch={setSearchTerm} />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
                 </Routes>
                 <TestCount />
                 <Footer avatar="/images/DocterMinh.jpg" authorName="MinhNPH" authorEmail="minhnphde180174@fpt.edu.vn" />

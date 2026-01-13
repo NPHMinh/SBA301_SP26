@@ -13,6 +13,8 @@ function Header({ onSearch }) {
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/orchid">Orchid</Nav.Link>
+                        <Nav.Link as={Link} to="/about">About</Nav.Link>
+                        <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
 
                     </Nav>
                      {/* SEARCH TRONG HEADER */}
