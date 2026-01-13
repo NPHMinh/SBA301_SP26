@@ -6,7 +6,7 @@ import Contact from './components/Contact.jsx'
 import About from './components/About.jsx'
 import Layout from './components/Layout.jsx'
 import ListOfOrchid from './components/ListOfOrchid.jsx'
-import TestCount from './components/TestCount.jsx'
+import OrchidDetail from './components/OrchidDetail.jsx'
 
 function App() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -26,6 +26,7 @@ function App() {
                             />
                         }
                     />
+                    <Route path="/orchid/:id" element={<OrchidDetail />} />
                 </Routes>
             </Layout>
         </Router>

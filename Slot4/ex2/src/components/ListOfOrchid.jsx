@@ -4,11 +4,15 @@ import orchidList from './listOfOrchid.js';
 import ConfirmModal from './ComfirmModal.jsx';
 import FilterSort from './FilterSort.jsx';
 import SearchBar from './SearchBar.jsx';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function ListOfOrchid({ searchTerm, onSearch }) {
     const [show, setShow] = useState(false);
     const [selected, setSelected] = useState(null);
+
+    const navigate = useNavigate();
 
     const [selectedCategory, setSelectedCategory] = useState('');
     const [sortOption, setSortOption] = useState('');
@@ -102,20 +106,28 @@ function ListOfOrchid({ searchTerm, onSearch }) {
                             )}
 
                             <div style={{ marginTop: '0.8rem' }}>
-                                <Button
+                                {/* <Button
                                     variant="primary"
                                     size="sm"
                                     onClick={() => openModal(orchid)}
                                 >
                                     Detail
+                                </Button> */}
+                                <Button
+                                    variant="primary"
+                                    size="sm"
+                                    onClick={() => navigate(`/orchid/${orchid.id}`)}
+                                >
+                                    Detail
                                 </Button>
+
                             </div>
                         </Card.Body>
                     </Card>
                 ))}
             </div>
 
-            <ConfirmModal
+            {/* <ConfirmModal
                 show={show}
                 handleClose={handleClose}
                 handleConfirm={handleClose}
@@ -136,7 +148,8 @@ function ListOfOrchid({ searchTerm, onSearch }) {
                         </div>
                     ) : null
                 }
-            />
+            /> */}
+
         </div>
     );
 }
