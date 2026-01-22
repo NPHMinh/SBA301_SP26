@@ -1,0 +1,97 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123456",
+      "fullName": "Administrator",
+      "email": "admin@orchid.com",
+      "role": "admin",
+      "avatar": "https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff"
+    },
+    {
+      "id": "2",
+      "username": "user1",
+      "password": "123456",
+      "fullName": "John Doe",
+      "email": "john@orchid.com",
+      "role": "user",
+      "avatar": "https://ui-avatars.com/api/?name=John+Doe&background=FF6B6B&color=fff"
+    },
+    {
+      "username": "minh",
+      "password": "123456",
+      "fullName": "Hoàng Minh",
+      "email": "minhnphde180174@fpt.edu.vn",
+      "role": "user",
+      "avatar": "https://ui-avatars.com/api/?name=Ho%C3%A0ng%20Minh&background=random&color=fff",
+      "id": "3"
+    }
+  ],
+  "orchids": [
+    {
+      "id": "1",
+      "orchidName": "Ceasar 4N",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porta lobortis ex. Morbi cursus consectetur diam, non lobortis massa gravida eu.",
+      "category": "Dendrobium",
+      "isSpecial": true,
+      "image": "/images/4n.jpg"
+    },
+    {
+      "id": "2",
+      "orchidName": "Mini Yaya",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porta lobortis ex. Morbi cursus consectetur diam.",
+      "category": "Dendrobium",
+      "isSpecial": true,
+      "image": "/images/yaya.jpg"
+    },
+    {
+      "id": "3",
+      "orchidName": "Crystallinum",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porta lobortis ex.",
+      "category": "Dendrobium",
+      "isSpecial": true,
+      "image": "/images/3mau.jpg"
+    },
+    {
+      "id": "4",
+      "orchidName": "Damari",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus consectetur diam.",
+      "category": "Dendrobium",
+      "isSpecial": false,
+      "image": "/images/damari.jpg"
+    },
+    {
+      "id": "5",
+      "orchidName": "Busuangense",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porta lobortis ex.",
+      "category": "Dendrobium",
+      "isSpecial": true,
+      "image": "/images/thohong.jpg"
+    },
+    {
+      "id": "6",
+      "orchidName": "Pink Moth",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Beautiful pink orchid variety.",
+      "isSpecial": true,
+      "image": "/images/hodiep.jpg",
+      "category": "Oncidium"
+    },
+    {
+      "id": "7",
+      "orchidName": "Alba",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pure white elegant orchid.",
+      "category": "Dendrobium",
+      "isSpecial": true,
+      "image": "/images/alba.jpg"
+    },
+    {
+      "id": "8",
+      "orchidName": "Singapore Yellow Dendro",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bright yellow tropical orchid.",
+      "category": "Dendrobium",
+      "isSpecial": true,
+      "image": "/images/yellow.jpg"
+    }
+  ]
+}
