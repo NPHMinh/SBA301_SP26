@@ -86,12 +86,12 @@
       "image": "/images/alba.jpg"
     },
     {
-      "id": "8",
-      "orchidName": "Singapore Yellow Dendro",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bright yellow tropical orchid.",
+      "orchidName": "Hoa lan vàng",
+      "description": "Hoa có màu vàng rất đẹp, vì tôi thích.",
       "category": "Dendrobium",
       "isSpecial": true,
-      "image": "/images/yellow.jpg"
+      "image": "/images/yellow.jpg",
+      "id": "8"
     }
   ]
 }
