@@ -1,0 +1,126 @@
+@startuml
+class vn.edu.fu.newsmanagement.pojos.NewsArticle {
+- String newsArticleId
+- String newsTitle
+- String headline
+- LocalDateTime createdDate
+- String newsContent
+- String newsSource
+- Boolean newsStatus
+- LocalDateTime modifiedDate
+- Category category
+- SystemAccount createdBy
+- Integer updatedById
+}
+
+interface vn.edu.fu.newsmanagement.repositories.NewsArticleRepository {
+~ boolean existsByCategory_CategoryId(Integer)
+~ boolean existsByCreatedBy_AccountId(Integer)
+}
+
+class vn.edu.fu.newsmanagement.services.CategoryService {
+- CategoryRepository categoryRepository
+- NewsArticleRepository newsArticleRepository
++ List<Category> getAllCategories()
++ Category createCategory(Category)
++ Category updateCategory(Integer,Category)
++ void deleteCategory(Integer)
+}
+
+
+class vn.edu.fu.newsmanagement.config.CorsConfig {
++ void addCorsMappings(CorsRegistry)
+}
+
+class vn.edu.fu.newsmanagement.NewsManagementApplication {
++ {static} void main(String[])
+}
+
+interface vn.edu.fu.newsmanagement.repositories.SystemAccountRepository {
+~ Optional<SystemAccount> findByAccountEmail(String)
+}
+
+class vn.edu.fu.newsmanagement.controllers.CategoryController {
+- CategoryService categoryService
++ List<Category> getAll()
++ Category create(Category)
++ Category update(Integer,Category)
++ ResponseEntity<String> delete(Integer)
+}
+
+
+class vn.edu.fu.newsmanagement.services.NewsArticleService {
+- NewsArticleRepository newsArticleRepository
++ List<NewsArticle> getAllNews()
++ NewsArticle getNewsById(String)
++ List<NewsArticle> getNewsByAccountId(Integer)
++ NewsArticle createNews(NewsArticle)
++ NewsArticle updateNews(String,NewsArticle)
++ void deleteNews(String)
+}
+
+
+class vn.edu.fu.newsmanagement.pojos.Category {
+- Integer categoryId
+- String categoryName
+- String categoryDescription
+- Integer parentCategoryId
+- Boolean isActive
+- List<NewsArticle> newsArticles
+}
+
+class vn.edu.fu.newsmanagement.pojos.SystemAccount {
+- Integer accountId
+- String accountName
+- String accountEmail
+- Integer accountRole
+- String accountPassword
+- Boolean isActive
+}
+
+class vn.edu.fu.newsmanagement.controllers.NewsArticleController {
+- NewsArticleService newsArticleService
++ List<NewsArticle> getAllNews()
++ ResponseEntity<NewsArticle> getNewsById(String)
++ List<NewsArticle> getNewsByCreator(Integer)
++ NewsArticle createNews(NewsArticle)
++ NewsArticle updateNews(String,NewsArticle)
++ ResponseEntity<String> deleteNews(String)
+}
+
+
+class vn.edu.fu.newsmanagement.services.SystemAccountService {
+- SystemAccountRepository accountRepository
+- NewsArticleRepository newsArticleRepository
++ SystemAccount login(String,String)
++ List<SystemAccount> getAllAccounts()
++ void deleteAccount(Integer)
++ SystemAccount createAccount(SystemAccount)
++ SystemAccount updateAccount(Integer,SystemAccount)
+}
+
+
+interface vn.edu.fu.newsmanagement.repositories.CategoryRepository {
+}
+class vn.edu.fu.newsmanagement.controllers.SystemAccountController {
+- SystemAccountService accountService
++ ResponseEntity<?> login(Map<String,String>)
++ List<SystemAccount> getAllAccounts()
++ ResponseEntity<SystemAccount> getAccount(Integer)
++ SystemAccount createAccount(SystemAccount)
++ SystemAccount updateAccount(Integer,SystemAccount)
++ ResponseEntity<String> deleteAccount(Integer)
+}
+
+
+class vn.edu.fu.newsmanagement.config.OpenAPIConfig {
++ OpenAPI customOpenAPI()
+}
+
+
+
+org.springframework.data.jpa.repository.JpaRepository <|-- vn.edu.fu.newsmanagement.repositories.NewsArticleRepository
+org.springframework.web.servlet.config.annotation.WebMvcConfigurer <|.. vn.edu.fu.newsmanagement.config.CorsConfig
+org.springframework.data.jpa.repository.JpaRepository <|-- vn.edu.fu.newsmanagement.repositories.SystemAccountRepository
+org.springframework.data.jpa.repository.JpaRepository <|-- vn.edu.fu.newsmanagement.repositories.CategoryRepository
+@enduml
