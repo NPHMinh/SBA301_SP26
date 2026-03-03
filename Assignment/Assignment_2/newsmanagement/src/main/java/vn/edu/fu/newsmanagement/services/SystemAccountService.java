@@ -30,6 +30,11 @@ public class SystemAccountService {
         return null;
     }
 
+    // Tìm account theo email (cho JWT login)
+    public SystemAccount findByEmail(String email) {
+        return accountRepository.findByAccountEmail(email).orElse(null);
+    }
+
     // --- THÊM HÀM NÀY ĐỂ SỬA LỖI 404 ---
     public SystemAccount getAccountById(Integer id) {
         return accountRepository.findById(id).orElse(null);
@@ -41,7 +46,15 @@ public class SystemAccountService {
         if (acc != null) {
             acc.setAccountName(details.getAccountName());
             acc.setAccountPassword(details.getAccountPassword());
-            // Không cho phép user tự đổi Role hoặc Email nếu không cần thiết
+            
+            // Cho phép cập nhật Role và Status
+            if (details.getAccountRole() != null) {
+                acc.setAccountRole(details.getAccountRole());
+            }
+            if (details.getIsActive() != null) {
+                acc.setIsActive(details.getIsActive());
+            }
+            
             return accountRepository.save(acc);
         }
         return null;

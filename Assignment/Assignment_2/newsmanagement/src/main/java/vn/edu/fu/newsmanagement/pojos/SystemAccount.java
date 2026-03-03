@@ -27,4 +27,7 @@ public class SystemAccount {
     @Column(name = "AccountPassword", columnDefinition = "varchar(255)")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String accountPassword;
+
+    @Column(name = "IsActive")
+    private Boolean isActive;
 }
